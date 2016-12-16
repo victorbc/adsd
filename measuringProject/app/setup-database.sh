@@ -2,8 +2,7 @@
 
 set -ex
 
-cockroach sql -e 'DROP DATABASE IF EXISTS example_flask_sqlalchemy'
-cockroach sql -e 'CREATE DATABASE example_flask_sqlalchemy'
-cockroach sql -e 'GRANT ALL ON DATABASE example_flask_sqlalchemy TO example'
+mysql -u root -e 'DROP DATABASE IF EXISTS adsd'
+mysql -u root -e 'CREATE DATABASE adsd'
 
-python -c 'import hello; hello.db.create_all()'
+python -c 'import todo; todo.db.create_all()'
