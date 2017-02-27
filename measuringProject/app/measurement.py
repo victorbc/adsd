@@ -1,7 +1,10 @@
 from datetime import datetime
-from flask import Flask, request, flash, url_for, redirect, \
+from flask import Flask, request, json, jsonify, flash, url_for, redirect, \
      render_template, abort
 from flask_sqlalchemy import SQLAlchemy
+from timer import Timer
+import psutil
+import os
 
 
 app = Flask(__name__)
@@ -55,13 +58,57 @@ def update_done():
     db.session.commit()
     return redirect(url_for('show_all'))
 
-@app.route('/benchmark/read/<int:num_requests>')
-def benchmark_read(num_requests):
-    pass
 
-@app.route('/benchmark/read-write/<int:num_requests>')
-def benchmark_read_write(num_requests):
-    pass
+@app.route('/benchmark/read/<query_title>', methods=['GET'])
+def benchmark_read(query_title):
+    response = dict()
+    if request.method == 'GET':
+        # get pid of current process and create Process object
+        p = psutil.Process(os.getpid())
+        # first read is equal to 0.0
+        cpu_usage = p.cpu_percent()
+        # Initialize total timer
+        with Timer() as total_time:
+            with Timer() as db_time:
+                todo = Todo.query.filter_by(title=query_title).first()
+            # this call influences the total time taken by the call
+            response['db_time'] = db_time.secs
+        # total time taken by request
+        response['total_time'] = total_time.secs
+        # CPU usage since last time we called p.cpu_percent()
+        response['cpu_usage'] = p.cpu_percent()
+        # memory usage of process.
+        response['memory_usage'] = p.memory_info()[0]
+
+    return jsonify(response)
+
+
+@app.route('/benchmark/read-write', methods=['POST'])
+def benchmark_read_write():
+    response = dict()
+    if request.method == 'POST':
+        # get pid of current process and create Process object
+        p = psutil.Process(os.getpid())
+        # first read is equal to 0.0
+        cpu_usage = p.cpu_percent()
+        # Initialize total timer
+        with Timer() as total_time:
+            # Get request json body
+            data = request.json
+            # Create object to be inserted into DB
+            todo = Todo(data['title'], data['text'])
+            # Insert data into DB
+            with Timer() as db_time:
+                db.session.add(todo)
+                db.session.commit()
+            response['db_time'] = db_time.secs
+
+        response['total_time'] = total_time.secs
+        # CPU usage since last time we called p.cpu_percent()
+        response['cpu_usage'] = p.cpu_percent()
+        response['memory_usage'] = p.memory_info()[0]
+
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run()
