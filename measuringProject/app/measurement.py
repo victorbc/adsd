@@ -83,8 +83,8 @@ def benchmark_read(query_title):
     return jsonify(response)
 
 
-@app.route('/benchmark/read-write', methods=['POST'])
-def benchmark_read_write():
+@app.route('/benchmark/write', methods=['POST'])
+def benchmark_write():
     response = dict()
     if request.method == 'POST':
         # get pid of current process and create Process object
