@@ -2,7 +2,8 @@
 
 set -ex
 
-mysql -u root -e 'DROP DATABASE IF EXISTS adsd'
-mysql -u root -e 'CREATE DATABASE adsd'
+# createDBs
+mysql -u root -p -e 'DROP DATABASE IF EXISTS adsd'
+mysql -u root -p -e 'CREATE DATABASE adsd'
 
-python -c 'import todo; todo.db.create_all()'
+python -c 'import measurement; measurement.db.create_all()'

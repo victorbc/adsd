@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config.from_pyfile('todo.cfg')
+app.config.from_pyfile('measurement.cfg')
 db = SQLAlchemy(app)
 
 
@@ -13,7 +13,7 @@ class Todo(db.Model):
     __tablename__ = 'todos'
     id = db.Column('todo_id', db.Integer, primary_key=True)
     title = db.Column(db.String(60))
-    text = db.Column(db.String)
+    text = db.Column(db.String(100))
     done = db.Column(db.Boolean)
     pub_date = db.Column(db.DateTime)
 
@@ -55,6 +55,13 @@ def update_done():
     db.session.commit()
     return redirect(url_for('show_all'))
 
+@app.route('/benchmark/read/<int:num_requests>')
+def benchmark_read(num_requests):
+    pass
+
+@app.route('/benchmark/read-write/<int:num_requests>')
+def benchmark_read_write(num_requests):
+    pass
 
 if __name__ == '__main__':
     app.run()
