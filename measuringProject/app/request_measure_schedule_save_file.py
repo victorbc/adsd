@@ -23,8 +23,6 @@ def job():
 ##    print r.headers['content-type']    
 ##    print("\nNome do processo: %s\n\nUso de memoria: \n%s\n\nUso de CPU: \n%s" % (p.name(), p.memory_percent(), p.cpu_percent(interval=1.0)))    
 
-registro_tempos.append(("#", "cpu_usage", "time_taken", "db_time", "memory_usage" , "total_time"))
-registro_tempos.append(("POST")) 
 
 def job():
 	global contador_execucoes
@@ -42,7 +40,7 @@ def job2():
 	start_time = time.time()
 	r = requests.post('http://127.0.0.1:5000/benchmark/write',json={"title":"test", "text":"lorem ipsum"})
 	json =  r.json();
-	registro_tempos.append((contador_execucoes, json["cpu_usage"], time.time() - start_time, json["db_time"], json["memory_usage"] , json["total_time"]))
+	registro_tempos.append(['POST',contador_execucoes, json['cpu_usage'], time.time() - start_time, json['db_time'], json['memory_usage'] , json['total_time']])
 
 
 def job3():
@@ -51,7 +49,7 @@ def job3():
 	start_time = time.time()
 	r = requests.get('http://127.0.0.1:5000/benchmark/read/test')
 	json =  r.json();
-	registro_tempos.append((contador_execucoes2, json["cpu_usage"], time.time() - start_time, json["db_time"], json["memory_usage"] , json["total_time"]))
+	registro_tempos.append(['GET',contador_execucoes2, json['cpu_usage'], time.time() - start_time, json['db_time'], json['memory_usage'] , json['total_time']])
 
 schedule.every(2).seconds.do(job2)
 
@@ -63,7 +61,6 @@ while True:
 
 	if (contador_execucoes == num_ensaios):
 		schedule.every(2).seconds.do(job3)
-		registro_tempos.append(("GET"))
 		contador_execucoes +=1; 
 	
 	if(contador_execucoes2 >= num_ensaios2):
@@ -72,10 +69,11 @@ while True:
 
 #salvar tempos em arquivo csv
 with open(str(time.time())+'.csv', 'wb') as csvfile:
-	writer = csv.writer(csvfile, delimiter=' ',
-		quotechar='|', quoting=csv.QUOTE_MINIMAL)
+	writer = csv.writer(csvfile, delimiter=',', escapechar=' ', quoting=csv.QUOTE_NONE)
+	writer.writerow(['type','#', 'cpu_usage', 'request_time', 'db_time', 'memory_usage' , 'total_time'])
 	for row in zip(registro_tempos):
-		writer.writerow(row)
+		#print(row)
+		writer.writerow(row[0])
 
 
 
