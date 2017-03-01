@@ -114,7 +114,7 @@ def benchmark_write():
         # memory usage of process.
         response['server_memory_usage'] = p.memory_info()[0]
         # whole OS CPU usage
-        response['so_cpu_usage'] = psutil.cpu_percent(interval=0.2) / psutil.cpu_count()
+        response['so_cpu_usage'] = psutil.cpu_percent(interval=0.1) / psutil.cpu_count()
         # whole OS memory usage
         mem = psutil.virtual_memory()
         response['so_memory_usage'] = psutil.virtual_memory().used
