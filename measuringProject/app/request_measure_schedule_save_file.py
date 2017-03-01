@@ -4,8 +4,8 @@ import schedule
 import csv
 import psutil
 
-num_ensaios = 30
-num_ensaios2 = 15
+num_ensaios = 50
+num_ensaios2 = 50
 contador_execucoes = 0
 contador_execucoes2 = 0
 registro_tempos = []
@@ -51,7 +51,7 @@ def job3():
 	json =  r.json();
 	registro_tempos.append(['GET',contador_execucoes2, json['cpu_usage'], time.time() - start_time, json['db_time'], json['memory_usage'] , json['total_time']])
 
-schedule.every(2).seconds.do(job2)
+#schedule.every(2).seconds.do(job2)
 
 #main loop
 while True:
@@ -59,10 +59,13 @@ while True:
 	time.sleep(0.1)
 
 
-	if (contador_execucoes == num_ensaios):
-		schedule.every(2).seconds.do(job3)
-		contador_execucoes +=1; 
-	
+	if (contador_execucoes < num_ensaios):
+		job2()
+		#schedule.every(2).seconds.do(job3)
+
+	if (contador_execucoes >= num_ensaios):
+		job3()
+
 	if(contador_execucoes2 >= num_ensaios2):
 		break
 
