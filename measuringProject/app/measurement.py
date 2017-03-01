@@ -76,9 +76,14 @@ def benchmark_read(query_title):
         # total time taken by request
         response['total_time'] = total_time.secs
         # CPU usage since last time we called p.cpu_percent()
-        response['cpu_usage'] = p.cpu_percent()
+        response['server_cpu_usage'] = p.cpu_percent()
         # memory usage of process.
-        response['memory_usage'] = p.memory_info()[0]
+        response['server_memory_usage'] = p.memory_info()[0]
+        # whole OS CPU usage
+        response['so_cpu_usage'] = psutil.cpu_percent(interval=0.1)
+        # whole OS memory usage
+        mem = psutil.virtual_memory()
+        response['so_memory_usage'] = psutil.virtual_memory().used
 
     return jsonify(response)
 
@@ -105,8 +110,14 @@ def benchmark_write():
 
         response['total_time'] = total_time.secs
         # CPU usage since last time we called p.cpu_percent()
-        response['cpu_usage'] = p.cpu_percent()
-        response['memory_usage'] = p.memory_info()[0]
+        response['server_cpu_usage'] = p.cpu_percent()
+        # memory usage of process.
+        response['server_memory_usage'] = p.memory_info()[0]
+        # whole OS CPU usage
+        response['so_cpu_usage'] = psutil.cpu_percent(interval=0.1)
+        # whole OS memory usage
+        mem = psutil.virtual_memory()
+        response['so_memory_usage'] = psutil.virtual_memory().used
 
     return jsonify(response)
 
