@@ -48,7 +48,14 @@ def run_get_experiment(requests_per_min):
     	r = requests.get(GET_URL + GET_QUERY)
         response_time = time.time() - start_time
     	json =  r.json()
-    	SAMPLES.append(['GET', json['cpu_usage'], response_time, json['db_time'], json['memory_usage'] , json['total_time']])
+    	        SAMPLES.append(['GET',
+                    json['server_cpu_usage'],
+                    json['server_memory_usage'],
+                    json['so_cpu_usage'],
+                    json['so_memory_usage'],
+                    json['db_time'],
+                    json['total_time'],
+                    response_time])
 
 def save_to_csv(test_type, duration, requests_per_min):
     file_name = "{timestamp}-{test_type}_{requests}_requests_per_minute_for_{duration}_min.csv".format(timestamp=time.time(), test_type=test_type, requests=requests_per_min, duration=duration)
