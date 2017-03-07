@@ -1,0 +1,53 @@
+CABO
+
+CPU:
+Min:       0
+Max:       800
+Media:     1.592304e+01
+1 Quartil: 0
+Mediana:   0
+3 Quartil: 0
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0 28.66 800 53.747]
+
+Tempo de Resposta da requisição:
+Min:       3.999949e-03
+Max:       1.262700e+01
+Media:     8.588978e-03
+1 Quartil: 6.000042e-03
+Mediana:   6.999969e-03
+3 Quartil: 9.999990e-03
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.0039999 0.0029252 12.623 0.080857]
+
+Tempo de Resposta do BD:
+Min:       0
+Max:       2.200007e-02
+Media:     2.168361e-03
+1 Quartil: 1.000166e-03
+Mediana:   2.000093e-03
+3 Quartil: 3.000021e-03
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.0019999 0.0007792 0.022 0.0011689]
+
+Memória:
+Min:       28397568
+Max:       29257728
+Media:     2.916062e+07
+1 Quartil: 29167616
+Mediana:   29171712
+3 Quartil: 29237248
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[69632 73525 8.6016e+05 1.2569e+05]
+
+Tempo total: 5.507299e+01
+
+
+II  - Intervalo interquartilico
+DPA - Desvio médio absoluto
+DA  - Distância da Amostra
+DP  - Desvio padrão

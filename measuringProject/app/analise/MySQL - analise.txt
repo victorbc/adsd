@@ -1,0 +1,53 @@
+MySQL
+
+CPU:
+Min:       0
+Max:       800
+Media:     1.615660e+01
+1 Quartil: 0
+Mediana:   0
+3 Quartil: 0
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0 29.056 800 54.986]
+
+Tempo de Resposta da requisição:
+Min:       3.999949e-03
+Max:       1.262700e+01
+Media:     3.141089e-02
+1 Quartil: 8.000135e-03
+Mediana:   2.399993e-02
+3 Quartil: 4.399991e-02
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.036 0.020425 12.623 0.11786]
+
+Tempo de Resposta do BD:
+Min:       0
+Max:       2.200007e-02
+Media:     2.717292e-03
+1 Quartil: 1.999855e-03
+Mediana:   2.999783e-03
+3 Quartil: 3.000021e-03
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.0010002 0.0010612 0.022 0.0014453]
+
+Memória:
+Min:       28397568
+Max:       33632256
+Media:     3.125887e+07
+1 Quartil: 29171712
+Mediana:   32272384
+3 Quartil: 32272384
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[3.1007e+06 1.4303e+06 5.2347e+06 1.5281e+06]
+
+Tempo total: 1.025490e+02
+
+
+II  - Intervalo interquartilico
+DPA - Desvio médio absoluto
+DA  - Distância da Amostra
+DP  - Desvio padrão

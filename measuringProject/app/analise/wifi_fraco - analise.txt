@@ -1,0 +1,53 @@
+WIFI fraco
+
+CPU:
+Min:       0
+Max:       800
+Media:     1.611062e+01
+1 Quartil: 0
+Mediana:   0
+3 Quartil: 0
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0 28.95 800 54.059]
+
+Tempo de Resposta da requisição:
+Min:       1.399994e-02
+Max:       9.170000e+00
+Media:     5.005630e-02
+1 Quartil: 2.300000e-02
+Mediana:   3.500009e-02
+3 Quartil: 4.900003e-02
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.026 0.029264 9.156 0.12728]
+
+Tempo de Resposta do BD:
+Min:       0
+Max:       1.600003e-02
+Media:     2.262794e-03
+1 Quartil: 1.000166e-03
+Mediana:   2.000093e-03
+3 Quartil: 3.000021e-03
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.0019999 0.00088196 0.016 0.0012857]
+
+Memória:
+Min:       29691904
+Max:       36298752
+Media:     3.206662e+07
+1 Quartil: 29966336
+Mediana:   32272384
+3 Quartil: 32272384
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[2.306e+06 1.3275e+06 6.6068e+06 1.7645e+06]
+
+Tempo total: 5.743001e+01
+
+
+II  - Intervalo interquartilico
+DPA - Desvio médio absoluto
+DA  - Distância da Amostra
+DP  - Desvio padrão

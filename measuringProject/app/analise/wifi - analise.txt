@@ -1,0 +1,53 @@
+WIFI
+
+CPU:
+Min:       0
+Max:       800
+Media:     1.598721e+01
+1 Quartil: 0
+Mediana:   0
+3 Quartil: 0
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0 28.758 800 53.878]
+
+Tempo de Resposta da requisição:
+Min:       1.300001e-02
+Max:       9.170000e+00
+Media:     4.425720e-02
+1 Quartil: 2.200007e-02
+Mediana:   2.999997e-02
+3 Quartil: 4.700017e-02
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.025 0.023917 9.157 0.10405]
+
+Tempo de Resposta do BD:
+Min:       0
+Max:       1.600003e-02
+Media:     2.247438e-03
+1 Quartil: 1.999855e-03
+Mediana:   2.000093e-03
+3 Quartil: 3.000021e-03
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.0010002 0.00085306 0.016 0.0012417]
+
+Memória:
+Min:       29691904
+Max:       38010880
+Media:     3.216355e+07
+1 Quartil: 29966336
+Mediana:   32272384
+3 Quartil: 32272384
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[2.306e+06 1.2739e+06 8.319e+06 1.744e+06]
+
+Tempo total: 1.141160e+02
+
+
+II  - Intervalo interquartilico
+DPA - Desvio médio absoluto
+DA  - Distância da Amostra
+DP  - Desvio padrão

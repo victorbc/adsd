@@ -1,0 +1,54 @@
+GET
+
+CPU:
+Min:       0
+Max:       800
+Media:     1.806131e+01
+1 Quartil: 0
+Mediana:   0
+3 Quartil: 0
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0 32.441 800 60.233]
+
+Tempo de Resposta da requisição:
+Min:       3.999949e-03
+Max:       1.262700e+01
+Media:     3.121068e-02
+1 Quartil: 9.999990e-03
+Mediana:   2.199984e-02
+3 Quartil: 3.799987e-02
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.028 0.022257 12.623 0.10263]
+
+Tempo de Resposta do BD:
+Min:       0
+Max:       1.599979e-02
+Media:     1.751517e-03
+1 Quartil: 1.000166e-03
+Mediana:   1.999855e-03
+3 Quartil: 2.000093e-03
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[0.00099993 0.00046996 0.016 0.00067492]
+
+Memória:
+Min:       28397568
+Max:       38010880
+Media:     3.186168e+07
+1 Quartil: 29224960
+Mediana:   32272384
+3 Quartil: 34570240
+Dispersão dos dados: 
+   II    -    DMA    -    DA    -    DP 
+[5.3453e+06 1.9573e+06 9.6133e+06 2.2921e+06]
+
+Tempo total: 6.421801e+01
+
+
+
+II  - Intervalo interquartilico
+DPA - Desvio médio absoluto
+DA  - Distância da Amostra
+DP  - Desvio padrão
