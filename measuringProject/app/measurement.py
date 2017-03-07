@@ -66,7 +66,7 @@ def benchmark_read(query_title):
         # get pid of current process and create Process object
         p = psutil.Process(os.getpid())
         # first read is equal to 0.0
-        # cpu_usage = p.cpu_percent()
+        cpu_usage = p.cpu_percent()
         # Initialize total timer
         with Timer() as total_time:
             with Timer() as db_time:
@@ -76,14 +76,9 @@ def benchmark_read(query_title):
         # total time taken by request
         response['total_time'] = total_time.secs
         # CPU usage since last time we called p.cpu_percent()
-        response['server_cpu_usage'] = p.cpu_percent(interval=0.1) / psutil.cpu_count()
+        response['cpu_usage'] = p.cpu_percent()
         # memory usage of process.
-        response['server_memory_usage'] = p.memory_info()[0]
-        # whole OS CPU usage
-        response['so_cpu_usage'] = psutil.cpu_percent(interval=0.1) / psutil.cpu_count()
-        # whole OS memory usage
-        mem = psutil.virtual_memory()
-        response['so_memory_usage'] = psutil.virtual_memory().used
+        response['memory_usage'] = p.memory_info()[0]
 
     return jsonify(response)
 
@@ -95,7 +90,7 @@ def benchmark_write():
         # get pid of current process and create Process object
         p = psutil.Process(os.getpid())
         # first read is equal to 0.0
-        # cpu_usage = p.cpu_percent()
+        cpu_usage = p.cpu_percent()
         # Initialize total timer
         with Timer() as total_time:
             # Get request json body
@@ -110,16 +105,10 @@ def benchmark_write():
 
         response['total_time'] = total_time.secs
         # CPU usage since last time we called p.cpu_percent()
-        response['server_cpu_usage'] = p.cpu_percent(interval=0.1) / psutil.cpu_count()
-        # memory usage of process.
-        response['server_memory_usage'] = p.memory_info()[0]
-        # whole OS CPU usage
-        response['so_cpu_usage'] = psutil.cpu_percent(interval=0.1) / psutil.cpu_count()
-        # whole OS memory usage
-        mem = psutil.virtual_memory()
-        response['so_memory_usage'] = psutil.virtual_memory().used
+        response['cpu_usage'] = p.cpu_percent()
+        response['memory_usage'] = p.memory_info()[0]
 
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='10.0.0.7')
