@@ -1,0 +1,6 @@
+flask
+flask-sqlalchemy
+SQLAlchemy
+mysql-python
+psycopg2
+psutil
